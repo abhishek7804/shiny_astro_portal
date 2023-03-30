@@ -1,0 +1,110 @@
+---
+interface Item {
+  name: string;
+  value: string;
+  content?: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  content?: string;
+  highlight?: string;
+  items?: Array<Item>;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  content = await Astro.slots.render('content'),
+  highlight,
+  items = [],
+} = Astro.props;
+---
+<section class="relative dark-bg stats-box"> 
+<!-- <div class="absolute mt-16 blue-shade">&nbsp;</div> -->
+<div class=" relative lg:max-w-7xl max-lg:max-w-7xl max-sm:w-full  mx-auto md:flex md:flex-row md:gap-0">
+  {
+    (title || subtitle || highlight) && (
+      <div class="md:mt-0 py-14 pl-4 lg:pr-28 md:pr-10 lg:pt-52 md:pt-20 max-sm:pt-10 max-sm:px-4 max-sm:py-2 md:basis-1/2 blue-shade-text">
+        {highlight && (
+          <p class="text-base font-semibold tracking-wide uppercase">
+            {highlight}
+          </p>
+        )}
+        {title && (
+          <h2
+            class="max-w-lg mb-6 lg:pt-4 md:pt-2 text-3xl font-semibold leading-none max-sm:pt-2 sm:text-4xl font-heading "
+            set:html={title}
+          />
+        )}
+        {subtitle && (
+          <p class=" text-base md:pb-8 " set:html={subtitle} />
+        )}
+        {content && (
+          <p class=" text-base pb-8 " set:html={content} />
+        )}
+      </div>
+    )
+  }
+  <div class=" lg:basis-1/2 lg:px-20 md:px-10 pb-20 lg:pt-36 md:pt-20 max-sm:mt-0 max-sm:px-2 max-sm:pt-2 max-sm:pb-2 w-1/2 max-sm:w-full stat-count show-on-scroll">
+    {
+      items.map(({content, name, value }) => (
+        <div class="flex max-sm:flex-nowrap text-center items-center md:last:border-none py-6 dark:md:border-slate-500 stat-count-rows">
+          <div class="text-left font-heading dark:text-gray-50 basis-2/5 lg:text-5xl">
+            {value}
+          </div>
+          <p class="stat-subtitle whitespace-nowrap text-xs flex basis-3/5 leading-none items-stretch xl:pl-14 md:pl-5 max-sm:pl-5 md:border-l md:flex-wrap max-sm:flex-nowrap max-sm:items-center uppercase -tracking-tight">
+            {content && <span class="block md:w-full text-md md:mb-4 max-sm:mb-0 w-11" set:html={content} />}
+            <span class="block text-left w-full">{name}</span>
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</div>
+</section>
+<script>
+  
+                    // Detect request animation frame
+                    var scroll = window.requestAnimationFrame ||
+                    // IE Fallback
+                    function(callback){ window.setTimeout(callback, 1000/60)};
+                    var elementsToShow = document.querySelectorAll('.show-on-scroll'); 
+
+                    function loop() {
+
+                    Array.prototype.forEach.call(elementsToShow, function(element){
+                    if (isElementInViewport(element)) {
+                    element.classList.add('is-visible');
+                    } else {
+                    element.classList.remove('is-visible');
+                    }
+                    });
+
+                    scroll(loop);
+                    }
+
+                    // Call the loop for the first time
+                    loop();
+
+                    // Helper function from: http://stackoverflow.com/a/7557433/274826
+                    function isElementInViewport(el) {
+                    // special bonus for those using jQuery
+                    if (typeof jQuery === "function" && el instanceof jQuery) {
+                    el = el[0];
+                    }
+                    var rect = el.getBoundingClientRect();
+                    return (
+                    (rect.top <= 0
+                    && rect.bottom >= 0)
+                    ||
+                    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight))
+                    ||
+                    (rect.top >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
+                    );
+     } 
+
+</script>

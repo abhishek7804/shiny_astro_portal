@@ -4,8 +4,8 @@
   "description": "Astro Integrated in a Frappe App",
   "main": "index.js",
   "scripts": {
-    "build": "cd astro_pages && yarn run build",
-    "postinstall": "cd astro_pages && yarn install"
+    "build": "cd nestorbird.com-astro && yarn run build",
+    "postinstall": "cd nestorbird.com-astro && yarn install"
   },
   "keywords": [],
   "author": "",
