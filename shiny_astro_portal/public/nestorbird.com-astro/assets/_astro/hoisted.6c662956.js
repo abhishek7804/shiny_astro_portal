@@ -1,0 +1,1 @@
+import"./MyTestimonials.astro_astro_type_script_index_0_lang.2944755d.js";
