@@ -1,0 +1,261 @@
+---
+import { SITE } from '~/config.mjs';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro'; 
+import Logos from '~/components/widgets/Logos.astro'; 
+import Features2 from '~/components/widgets/Features2.astro'; 
+import Gallery from '~/components/widgets/Gallery.astro';
+import Partners from '~/components/widgets/Partners.astro';
+import Clients from '~/components/widgets/Clients.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro'; 
+import CaseStudies from '~/components/widgets/CaseStudies.astro'; 
+import Blogs from '~/components/widgets/Blogs.astro'; 
+import Stats from '~/components/widgets/Stats.astro';
+import DetailsForm from '~/components/widgets/DetailsForm.astro';
+import HomePageBanner from '../components/widgets/HomePageBanner.astro'; 
+import Modal from '~/components/Modal.astro';
+const meta = {
+  title: SITE.title,
+  description: SITE.description,
+  dontUseTitleTemplate: true,
+};
+---
+
+<Modal/>
+<Layout {meta}>
+  <!-- Hero Widget ******************* -->
+<HomePageBanner  
+          pageHeaderBgImg={"~/assets/images/nb-banner.webp"} 
+          pageHeaderMinVh="50vh"
+          pageHeaderRadius="1rem"
+        />
+        <Hero>
+          <Fragment slot="title">
+            Everything You Need <br> To Keep Doing Your Business 
+          </Fragment> 
+          <Fragment slot="subtitle"> 
+            Drive growth & efficiency with our cutting-edge IT solutions & Consultations 
+          </Fragment> 
+          <Fragment slot="callToAction"> 
+            <button  data-bs-toggle="modal" data-bs-target="#bookConsultaion" class="btn ml-2 py-2.5 px-5.5 md:px-6 font-medium shadow-none text-white md:text-sm max-sm:text-xs btn-primary button-banner">Book a Free Consultation</button>
+          </Fragment> 
+        </Hero> 
+
+  
+
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="What We Do?"
+    subtitle="NestorBird is the world's leading product development and digital transformation company, empowering businesses to bridge the gap between ideas and reality through advanced technology services, consultation and customer support solutions." 
+    items={[
+      {
+        boxClass:'boxClass1',
+        content: '<img src="/assets/images/whatwedo-expert.svg" alt="" height="60"/> ', 
+        title: 'ERP <br /> Implementation',
+        description: 'Revolutionize your business with end-to-end ERP implementation services like ERPNext setup, hosting support, data backup & Migration, system configuration & customization.',  
+      },
+      {        
+        boxClass:'boxClass2',
+        content: '<img src="/assets/images/whatwedo-devlop.svg" alt="" height="60"/> ', 
+        title: 'ERP Integration <br /> & Development ',
+        description: 'Get custom ERP development & Integration solutions to build feature-rich mobile apps & websites to ensure a seamless transition for maximum Business ROI.',  
+      },
+      {
+        boxClass:'boxClass3',
+        content: '<img src="/assets/images/whatwedo-imp.svg" alt="" height="60"/> ', 
+        title: 'ERP Support <br /> & Services',
+        description: 'Attain 24*7 ERP support to enhance the customer user experience by monitoring & maintaining app server, regular data backups & recovery and technical support',  
+      } 
+      // {
+      //   boxClass:'boxClass4',
+      //   content: '<img src="/assets/images/whatwedo-support.svg" alt="" height="60"/> ', 
+      //   title: 'Support <br /> Services',
+      //   description:
+      //     'With round-the-clock availability, we develop cost-effective digital business capabilities around ERP to ensure great support for your productivity.',  
+      // } ,
+      // {
+      //   boxClass:'boxClass5',
+      //   content: '<img src="/assets/images/whatwedo-integration.svg" alt="" height="60"/> ', 
+      //   title: 'ERP <br />Integration',
+      //   description:
+      //     'We help you connect with other functional departments to streamline workflow, boost efficiency and grow your business in different directions.',  
+      // } 
+    ]}
+  />
+ 
+ <!-- Stats Widget ****************** -->
+
+  <Stats   
+    title="Who We Are?"
+    subtitle="NestorBird is the fastest-growing Open Source Cloud ERP provider worldwide. "
+    content="We offer end-to-end ERP, CRM & E-Commerce solutions for diverse early-stage startups and mid-sized and large businesses worldwide.<br><br> We Have Been the Part of Worldwide Business Success!" 
+    items={[
+      { content: '<img src="/assets/images/whoweare-icon1.svg" alt=""/> ',
+        name: 'Transactions a day',
+        value: '100k' },
+      { content: '<img src="/assets/images/whoweare-icon2.svg" alt=""/> ', 
+      name: 'Clients Worldwide', 
+      value: '200+' },
+      { content: '<img src="/assets/images/whoweare-icon3.svg" alt=""/> ', 
+      name: 'Digital Solutions', 
+      value: '16' },
+      { content: '<img src="/assets/images/whoweare-icon4.svg" alt=""/> ', 
+      name: 'Digital products', 
+      value: '5+' },
+    ]}
+  />
+
+  
+ <!-- Logos Widget ****************** -->
+
+  <Logos>
+    <Fragment slot="content">
+      <h3 class="text-4xl font-semibold tracking-tight leading-snug text-black mb-4 max-sm:text-2xl">Trusted by Leading Global <span>Business Brands</span></h3> 
+    </Fragment>
+  </Logos>
+
+ <!-- Logos Widget ****************** -->
+
+ 
+
+  <!-- Partners Widget **************** -->
+
+  <Partners
+  image={{
+      src: import('~/assets/images/partner-arrow.webp'),
+      alt: 'Partners', 
+    }}>
+    
+    <Fragment slot="content">
+      <h3 class="lg:text-5xl md:text-3xl tracking-tight font-bold mb-10 max-sm:mb-5">Our Partners</h3>
+      <p>We are the official partner of Frappe to offer ERPNext software implementation and consultation services for developing leading business portals and industries worldwide.</p>
+      <p>At NestorBird, we have HubSpot certified team in several domains like Inbound Sales, Inbound Marketing, Selling Sales Services, Platform Consulting, Client Management, Sales Hub Implementation, HubSpot CMS for Developers, and Delivering Client’s Success.</p>
+      <p><img src="/assets/images/frappe-hubspot.png" alt=""/></p>
+    </Fragment>
+  </Partners>
+
+  <!-- Partners Widget **************** -->
+   
+ <!-- Testimonials Widget ****************** -->
+
+  <Testimonials    
+    image={{
+      src: import('~/assets/images/inverted-quote.webp'),
+      alt: 'Logos',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-7xl font-bold tracking-tight dark:text-black mb-2 testimonial-title">Hear the Success Stories of <br /> Our Business Clients!</h3> 
+    </Fragment>
+  </Testimonials>
+
+ <!-- Logos Widget ****************** -->
+ 
+
+  <!-- Clients Widget **************** -->
+
+  <Clients
+  title="Innovating Together,"
+  subtitle="Building an Ecosystem of Global <br/> Partnerships"
+  > 
+  </Clients>
+  
+
+  <!-- Highlighted CaseStudies Widget ******* -->
+  <CaseStudies
+  title="Case Studies"
+  subtitle="Our Latest Research in Healthcare, Manufacturing, and Retail Businesses!" 
+  items={[
+    {
+      content: '<img src="/assets/images/case-study-img1.png" alt=""/> ', 
+      link: 'https://nestorbird.com/case-study/erpnext-healthcare-implementation-in-hospitals-a-case-study',
+      title: 'Reasons to Implement ERPNext Software For Healthcare',
+      description:
+        "Providing a centralized platform, this ERPNext Healthcare Implementation in RYK Hospital helps overcome many challenges like clinical errors, data migration, medical records, and alignment of data analytics.",  
+    },
+    {
+      content: '<img src="/assets/images/case-study-img2.png" alt=""/> ', 
+      link: 'https://nestorbird.com/How-ERPNext-Manufacturing-Software-Helped-Rockerz-in-Skate-Guards-Customization-for-an-Olympic-Event-A-Case-Study',
+      title: 'ERPNext Manufacturing Software Implementation',
+      description:
+      "Automating the entire workflow, ERPNext Manufacturing implementation in Rockerz Skate Guards has overcome numerous challenges like Booking Orders, Quotations, Seller Registration, Coordination, Customization, and Online Payments Process.",  
+    },
+    {
+      content: '<img src="/assets/images/case-study-img3.png" alt=""/> ', 
+      link: 'https://nestorbird.com/case-study/erpnext-manufacturing-tanteo-spirits',
+      title: 'ERPNext Manufacturing Software Implementation',
+      description:
+      "Offering a single platform, ERPNext Manufacturing Software implementation in Tanteo Spirits overcomes various challenges like raw material reporting, warehouse data migration, valuation in tequila rate, profit and process loss reports, and additional cost calculation.",  
+    }  
+  ]}
+/> 
+
+  <Gallery    
+  image={{
+      src: import('~/assets/images/nbions-gallery.webp'),
+      alt: 'NBions',
+    }}
+  title="Meet <span class>#</span> NBions"
+  subtitle="Creative, Imaginative, Workaholic, Enthusiastic, and Brilliant Team at NestorBird. <br>This is What NestorBird's Life Looks Like!">
+ 
+  </Gallery>
+   <!-- Latest Blogs Widget ******* -->
+   <Blogs
+   title="From The Blog"
+   subtitle="Our blog section is packed with informative, thought-provoking, and engaging content that is sure to appeal to a wide range of readers." 
+   items={[
+     {
+       highlight:'ERPNext for Healthcare',
+       content: '<img src="/assets/images/blog-img1.svg" alt=""/> ', 
+       link: 'https://nestorbird.com/Top-9-Trend-to-Watch-in-2023-for-ERPNext-Healthcare',
+       title: 'Top 9 Trends to Watch in 2023 for ERPNext Healthcare',
+       description:
+         "2022 is about to end, and it's high time to open a window for a better future in 2023. Let's see how the top trends of ERPNext Healthcare will give you an insight into progressing waves to expand your business sphere and audience reach in the coming year.",  
+     },
+     {
+       highlight:'Cloud ERP for Education',
+       content: '<img src="/assets/images/blog-img2.svg" alt=""/> ', 
+       link: 'https://nestorbird.com/how-is-cloud-erp-shaping-the-future-of-smart-education',
+       title: 'How Is Cloud ERP Shaping the Future of Smart Education',
+       description:
+       "The education sector has changed drastically over the last few decades. It is slowly migrating from the use of pens and paper to smartphones and laptops. Yet, there is still a lot of room for innovation that could improve education quality by streamlining processes and making them more convenient and up-to-date.",  
+     },
+     {
+       highlight:'Cloud ERP for Education',
+       content: '<img src="/assets/images/blog-img3.svg" alt=""/> ', 
+       link: 'https://nestorbird.com/5-key-points-that-can-help-in-determining-erp-customization',
+       title: '5 Key Points That Can Help in Determining ERP Customization',
+       description:
+       "A key component of optimizing your company's operations is using an ERP solution. You can combine the major elements of your business into a single, centralized system, from development to human resources to supply chain management and analyze data to inform and support your business.",  
+     }  ,
+     {
+       highlight:'ERPNext for Healthcare',
+       content: '<img src="/assets/images/blog-img4.webp" alt=""/> ', 
+       link: 'https://nestorbird.com/blog/general/erpnext-erp-system-for-hospitals-%7C-healthcare-industry-management-software-its-implementation-a-case-study',
+       title: 'ERPNext: ERP System for Hospitals | Healthcare Industry Management Software & Its Implementation',
+       description:
+       "This Medical ERP Software for healthcare industry implemented in community care sectors has changed the scenario of the entire work management module by efficaciously supporting collaborative data functions and enabling a systematic flow to streamline several operations.",  
+     }   ,
+     {
+       highlight:'ERPNext for Healthcare',
+       content: '<img src="/assets/images/blog-img5.jpg" alt=""/> ', 
+       link: 'https://nestorbird.com/blog/general/erpnext-erp-system-for-hospitals-%7C-healthcare-industry-management-software-its-implementation-a-case-study',
+       title: 'This Medical ERP Software for healthcare industry implemented in community care sectors has changed the scenario of the entire work management module by efficaciously',
+       description:
+       "Enterprise resource planning (ERP) can be a game-changer in industries like manufacturing, where efficiency is continually sought yet tough to find. Manufacturing erp is a centralized system for managing all the functionalities of a manufacturing firm such as production, floor management, inventory management, order management, customer management, vendor management and more.",  
+     }  
+   ]}
+ /> 
+  <!-- Gallery Widget **************** -->
+  <!-- DetailsForm Widget ******* -->
+ <DetailsForm   
+    title="Let's Plan, Develop <br /> And <span> Grow Your <br /> Business With Us!</span>" 
+    content="Drop Your Business Query Now"  
+    link="sales@nestorbird.com"  
+  >
+  <div id="hubspotForm"> </div>
+ </DetailsForm> 
+</Layout>
